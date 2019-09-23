@@ -1,46 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-                <div class="header">
-                    <p><img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="" height="80" width="80"><span>fintrack</span></p> <!--include logo-->
-                    </div>
-                    <div class="middle-container">
-                        <div class="sign-up">
-                            <div class="content">
-                                    <h3>Sign Up For An Account</h3>
-                                    <p class="fast">It's super fast and easy!</p>
-                                
-                                    <input class="inputbody" placeholder="First Name"type="text" name="" value=""> &nbsp;
-                                <input class="inputbody" placeholder="Last Name"type="text" name="" value=""><br>
-                                <input class="email-body" placeholder="Email"type="Mail" name="" value=""> <br>
-                                <input class="inputbody" placeholder="Password" type="password" name="" value=""> &nbsp;
-                                <input class="inputbody" placeholder="Re-enter Password" type="password" name="" value=""><br>
-                                <button class="register">Register ></button>
-                                <p class="account">Already have an account? <a href="login.html" target="_blank">Log In</a></p> <!--Login Page-->
-                            </div>
-                               
-                        </div>
-                        
-                        <div class="personal">
-                            <div class="personal-content">
-                                    <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/RL-couple-01_t8axck.png" alt="people-icon" height="80" width="80">
-                                    <h3>Personal Details</h3>
-                                    <p>We'd like to get to know you! <br>
-                                    Please fill in your name, email address and password to continue</p>
-                            
-                                    <p class="help">Need Help? <a href="contact.html" target="_blank">Contact Us</a></p>
-                            </div>
-                            
-                        </div>
-                    </div>
-        </div>
+<html lang="en">
 
-    </body>
-    </html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>FinTrack | Register</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-3 offset-md-5 mt-3">
+            <a href="" style="color: #5829B8; font-weight: 800; font-size: 250%;" class="d-block mx-auto"><img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;" class="mx-auto img-fluid"><span class="mt-2">fintrack</span></a>
+        </div>
+        <div class="row">
+            <div class="col-md-7 mt-3 pt-5 pb-5" style="border: thin solid #5829B8">
+                <div class="container-fluid pt-5 pb-5">
+                    <h4>Sign Up For An Account</h4>
+                    <p class="mt-4">It's super fast and easy!</p>
+                    <form>
+                        <div class="row mt-4">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Password">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-2">
+                                <button class="btn col-md-12" style="background-color: #5829B8; color: #fff; font-size: 110%; font-weight: 300;">Register</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="text-align: center;">
+                            <p class="mx-auto mt-2">Already have an account? <a href="index.html" style="color: #5829B8">Login</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 offset-md-1 mt-3 pt-5 pb-5" style="text-align: center; border: thin solid #5829B8;">
+                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/RL-couple-01_t8axck.png" class="img-fluid w-25 d-block mx-auto pt-5">
+                <h4 class="d-block mx-auto mt-4">Personal Details</h4>
+                <p class="mt-4">We’d like to get to know you, Please fill in your name, email address and password to continue
+                </p>
+                <div class="col-md-12 mt-5" style="text-align: center;">
+                    <p class="mx-auto mt-5">Need some help? <a href="" style="color: #5829B8">Contact Us</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
