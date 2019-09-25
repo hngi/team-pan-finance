@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <div class="container">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="col-md-12" style="text-align: center;">
-                            <p class="mx-auto mt-2">Already have an account? <a href="login.html" style="color: #5829B8">Login</a>
+                            <p class="mx-auto mt-2">Already have an account? <a href="{{ route('login') }}" style="color: #5829B8">Login</a>
                             </p>
                         </div>
                     </form>
