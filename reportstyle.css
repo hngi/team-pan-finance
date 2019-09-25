@@ -1,0 +1,246 @@
+* {
+	margin: 0px; 
+	padding: 0px; 
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+#wrapper{
+    width: 100%;
+}
+.sidebar{
+    width: 25%;
+    height: 350px;
+   /* background-color: black;*/
+    margin: 30px auto;
+    display: flex;
+    position: absolute;
+    margin-left: 45px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.icon1{
+    top: 50%;
+    width: 200px;
+    height: 150px;
+    padding-left: 20px;
+    float: left;
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+   /* background-color: white;*/
+}
+.icon1 img{
+    margin-left: 35px;
+}
+.icon2{
+    top: 66%;
+    width: 200px;
+    height: 150px;
+    padding-left: 20px;
+    float: left;
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    background-color: red;
+}
+.icon2 img{
+    margin-left: 35px;
+}
+.icon3{
+    width: 200px;
+    height: 150px;
+    padding-left: 20px;
+    float: left;
+    box-sizing: border-box;
+   display: inline-block;
+    position: absolute;
+    /*background-color: blue;*/
+}
+
+.icon3 img{
+    margin-left: 35px;
+}
+#reportsimage{
+    
+    float: right;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 65%;
+}
+.statement-sheet{
+    width: 30%;
+    height: 400px;
+    background-color: #5829B8;
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    left: 25%;
+    
+    
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.statement-totals{
+    top: 85%;
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+   
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.table{
+    margin-left: 10px;
+}
+.table-hover{
+   padding-bottom: 100px;
+   color: white;  
+}
+#link-buttons{
+    width: 500px;
+    height: 100px;
+    top: 68%;
+    position: absolute;
+    float: right;
+    display: block;
+    margin: 0 auto;
+    left: 65.2%;
+   
+}
+.tab{
+    width: 29%;
+    height: 40px;
+    text-decoration: none;
+    border-radius: 15%;
+    background-color: #5829B8;
+    outline: none;
+    border: none;
+}
+
+/*bot styling starts here */
+    #botlogo{
+        
+        position: absolute;
+        top: 78%;
+        left: 88.8%;
+        position: fixed;
+    }
+    
+    }
+    #botlog img {
+        padding: 50px;
+        transition: transform .2s; /* Animation */
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        box-shadow: rgba();
+    }
+
+    #botlogo img:hover {
+        transform: scale(1.5); 
+    }
+
+    /*css popout styling starts here
+    
+    */
+
+    #popup
+    {
+  position:absolute;
+  top:2vh;
+  right:10vw;
+  width:20vw;
+  background-color:#EFF1F3;
+  color:black;
+  -khtml-opacity:0;
+  -moz-opacity : 0;
+  -ms-filter: "alpha(opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter : alpha(opacity=0);
+  opacity : 0;
+  padding:20px;
+  border-style:solid;
+  border-radius:15px;
+  border-color:#bbd8b3;
+  transition:all 1s;
+  -webkit-transition:all 1s;
+  float: left;
+}
+
+#popup:target
+{
+  -khtml-opacity:1;
+  -moz-opacity : 1;
+  -ms-filter: "alpha(opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter : alpha(opacity=100);
+  opacity : 1;
+}
+
+#close
+{
+  position:absolute;
+  left:100%;
+  top:-20px;
+  margin-left:-10px;
+  background-color:#EFF1F3;
+  font-size:12px;
+  padding:5px 7px;
+  border-radius:50px;
+  border-style:solid;
+  border-color:#bbd8b3;
+  font-weight:bold;
+  color:#bbd8b3;
+  text-decoration:none;
+  font-family:arial;
+}
+
+#close:hover
+{
+  background-color:#EFF1F3;
+  border-color:#bbd8b3;
+  color:#D77A61;
+}
+
+#close:active
+{
+  background-color:#A9F5F2;
+  color:black;
+}
+/*monthly reports styling starts here */
+
+
+.report{
+    width: 60%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    float: right;
+    left: 23%;
+}
+#report-buttons{
+    width: 500px;
+    height: 100px;
+    
+    position: absolute;
+    float: right;
+    display: block;
+    margin: 60px auto;
+    left: 65.2%;
+   
+}
+.tabs{
+    width: 29%;
+    height: 40px;
+    text-decoration: none;
+    border-radius: 15%;
+    background-color: #5829B8;
+    outline: none;
+    border: none;
