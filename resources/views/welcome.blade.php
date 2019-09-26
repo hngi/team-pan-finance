@@ -22,14 +22,12 @@
 
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand ml-5" href="#" style="color: #5829B8; font-weight: 800; font-size: 250%;">
             <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;"><span class="mt-2">fintrack</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+        
+        
             <ul class="navbar-nav mr-auto">
 
             </ul>
@@ -42,7 +40,7 @@
                     <a class="nav-link btn btn-primary" href="{{ asset('register') }}" style="background-color: #5829B8; border: 2px solid #5829B8; color: #fff;">REGISTER</a>
                 </li>
             </ul>
-        </div>
+        
     </nav>
 
 
