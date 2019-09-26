@@ -1,63 +1,92 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts._head')
+<head>
+    @include('layouts._head')
+    <style>
+        .nav-pills>li>a {
+            background-color: rgb(248, 249, 250);
+            color: #5829B8 !important;
+        }
+
+        .nav-pills>li>a.active {
+            background-color: #5829B8 !important;
+            color: #fff !important;
+        }
+
+        .nav-tabs>li>a {
+            background-color: rgb(248, 249, 250);
+            color: #5829B8 !important;
+        }
+
+        .nav-tabs>li>a.active {
+            background-color: #5829B8 !important;
+            color: #fff !important;
+        }
+
+        .btn-primary {
+            background-color: #5829B8 !important;
+            color: #fff;
+            border: thin solid #5829B8;
+        }
+    </style>
+</head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <main class="py-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand ml-5" href="#" style="color: #5829B8; font-weight: 800; font-size: 250%;">
+                    <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;"><span class="mt-2">fintrack</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-5 mb-1">
+                            <form class="d-none" method="post" action="{{ route('logout') }}" id="logout_form">
+                                @csrf
+                            </form>
+                            <a class="nav-link btn btn-warning" href="#" id="logout_btn" style="color: #fff;">LOGOUT</a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('expenses.index')? "active": '' }}" id="home-tab"  href="{{ route('expenses.index') }}" role="tab" aria-controls="home" aria-selected="true">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('expenses.create')? "active": '' }}" id="create-tab"  href="{{ route('expenses.create') }}" role="tab" aria-controls="profile" aria-selected="false">NEW EXPENSE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('expenses.report')? "active": '' }}" id="contact-tab"  href="{{ route('expenses.report') }}" role="tab" aria-controls="contact" aria-selected="false">EXPENSE REPORT</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                    @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+    @stack('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script>
+        onload = function () {
+            $(`#logout_btn`).click((e => {
+                e.preventDefault();
+                $(`#logout_form`).submit();
+            }))
+        }
+    </script>
 </body>
 </html>
