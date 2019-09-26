@@ -56,17 +56,17 @@
                     </div>
                 </div>
             </div>
-   {{--         <div class="tab-pane container fade" id="menu4">
+            <div class="tab-pane container fade" id="menu4">
                 <div class="col-md-6 offset-md-3 mt-5">
                     <div class="card mt-5">
                         <div class="card-body">
-                            <h4>TOTAL AMOUNT TRACKED (ALL TIME): <br><br> NGN
-                                {{ number_format($user->) }}
+                            <h4>TOTAL AMOUNT TRACKED ALL TIME: <br><br> NGN
+                                {{ number_format($all_time) }}
                             </h4>
                         </div>
                     </div>
                 </div>
-            </div>--}}
+            </div>
             <div class="tab-pane container fade" id="menu3">
                 <div class="col-md-6 offset-md-3 mt-5">
                     <div class="card mt-5">

@@ -21,7 +21,15 @@ class ExpensesController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return  view('home', compact('user'));
+        // Is this the user's first time vicing the "home"
+        // page? If so greet appropriately so say
+        // "Welcome" instead of "Welcome Back"
+        $first_timer = false;
+        if (session()->has('first_timer')) {
+            $first_timer = true;
+        }
+        $expenses = $user->expenses()->paginate();
+        return  view('home', compact('user', 'expenses', 'first_timer'));
     }
 
     /**
@@ -58,16 +66,6 @@ class ExpensesController extends Controller
         return back()->with('success', 'Expense item added successfully. You may add another one');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Expense  $expense
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Expense $expense)
-    {
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -134,7 +132,9 @@ class ExpensesController extends Controller
             now()->startOfYear()->toDateTimeString(), now()->endOfYear()->toDateTimeString()
         ])->currentUser()->sum('amount');
 
-        return view('report', compact('week', 'month', 'year'));
+        $all_time = Expense::currentUser()->sum('amount');
+
+        return view('report', compact('week', 'month', 'year', 'all_time'));
     }
 
     public function customRangeReport(Request $request)

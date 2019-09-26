@@ -32,7 +32,8 @@
     <div class="pl-5">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <h2>Home</h2>
-                <p style="font-size: 120%; font-weight: 300;">Welcome back, {{ $user->full_name }}</p>
+                <p style="font-size: 120%; font-weight: 300;">
+                    {{ $first_timer ? "Welcome": "Welcome back"}}, {{ $user->full_name }}</p>
                 <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total amount tracked by you:
                     <br><br> NGN
                     {{ number_format($user->expenses->sum('amount')) }}
@@ -63,7 +64,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse($user->expenses as $expense)
+                    @forelse($expenses as $expense)
                     <tr>
                         <td>
                             <a href="{{ route('expenses.edit', $expense->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -85,6 +86,7 @@
                     @endforelse
                     </tbody>
                 </table>
+                {!! $expenses->links() !!}
                 <form id="deleteItem" class="d-none" method="post">
                     @method('delete')
                     @csrf
