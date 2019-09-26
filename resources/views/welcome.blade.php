@@ -31,15 +31,7 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
-            <ul class="navbar-nav">
-
-                <li class="nav-item mr-2 mb-1">
-                    <a class="nav-link btn btn-outline-primary" href="{{ route('login') }}" style="border: 2px solid #5829B8; color: #000">LOGIN</a>
-                </li>
-                <li class="nav-item mr-2 mb-1">
-                    <a class="nav-link btn btn-primary" href="{{ asset('register') }}" style="background-color: #5829B8; border: 2px solid #5829B8; color: #fff;">REGISTER</a>
-                </li>
-            </ul>
+            
         
     </nav>
 
@@ -51,6 +43,15 @@
                 <div class="container mt-5">
                     <h1>Track Your <br> Finances</h1>
                     <p>Follow up on your finances, <br> by keeping a day to day record of your spending</p>
+                    <ul class="navbar-nav">
+
+                <li class="nav-item mr-2 mb-1">
+                    <a class="nav-link btn btn-outline-primary" href="{{ route('login') }}" style="border: 2px solid #5829B8; color: #000">LOGIN</a>
+                </li>
+                <li class="nav-item mr-2 mb-1">
+                    <a class="nav-link btn btn-primary" href="{{ asset('register') }}" style="background-color: #5829B8; border: 2px solid #5829B8; color: #fff;">REGISTER</a>
+                </li>
+            </ul>
                 </div>
             </div>
             <div class="col-md-6 right-side">
