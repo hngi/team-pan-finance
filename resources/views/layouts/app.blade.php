@@ -49,7 +49,7 @@
                             <form class="d-none" method="post" action="{{ route('logout') }}" id="logout_form">
                                 @csrf
                             </form>
-                            <a class="nav-link btn btn-warning" href="#" id="logout_btn" style="color: #fff;">LOGOUT</a>
+                            <a class="nav-link btn btn-danger" href="#" id="logout_btn" style="color: #fff;">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
