@@ -84,23 +84,21 @@
 @endsection
 @push('script')
     <script>
-        onload = function () {
-            $(`#get_custom_report`).submit((e) => {
-                e.preventDefault();
-                const spinner = document.getElementById('report_loading');
-                spinner.classList.remove('d-none');
-                let from = $(`#from`).val();
-                let to = $(`#to`).val();
-                let url = `{{ route('expenses.report.custom') }}?from=${from}&to=${to}`;
-                axios.get(url).then(res =>{
-                    $(`#response`).html(`TOTAL AMOUNT SPENT DURING SELECTED PERIOD: <b>${res.data.total} NGN</b>`)
-                }).catch(err => {
-                    $(`#response`).html(`<span class="text-danger">ERROR: ${err.response.data.message || err.toString()}</span>`);
-                }).finally(() => {
-                    spinner.classList.add('d-none');
-                })
+        $(`#get_custom_report`).submit((e) => {
+            e.preventDefault();
+            const spinner = document.getElementById('report_loading');
+            spinner.classList.remove('d-none');
+            let from = $(`#from`).val();
+            let to = $(`#to`).val();
+            let url = `{{ route('expenses.report.custom') }}?from=${from}&to=${to}`;
+            axios.get(url).then(res =>{
+                $(`#response`).html(`TOTAL AMOUNT SPENT DURING SELECTED PERIOD: <b>${res.data.total} NGN</b>`)
+            }).catch(err => {
+                $(`#response`).html(`<span class="text-danger">ERROR: ${err.response.data.message || err.toString()}</span>`);
+            }).finally(() => {
+                spinner.classList.add('d-none');
+            })
 
-            });
-        };
+        });
     </script>
 @endpush

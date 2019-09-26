@@ -78,15 +78,15 @@
             </div>
         </main>
     </div>
-    @stack('script')
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script>
-        onload = function () {
-            $(`#logout_btn`).click((e => {
-                e.preventDefault();
-                $(`#logout_form`).submit();
-            }))
-        }
+        $(`#logout_btn`).click((e => {
+            e.preventDefault();
+            $(`#logout_form`).submit();
+        }))
     </script>
+    @stack('script')
 </body>
 </html>
