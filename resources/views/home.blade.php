@@ -35,7 +35,7 @@
                 <p style="font-size: 120%; font-weight: 300;">Welcome back, {{ $user->full_name }}</p>
                 <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total amount tracked by you:
                     <br><br> NGN
-                    {{ $user->expenses->sum('amount') }}
+                    {{ number_format($user->expenses->sum('amount')) }}
                 </h4>
                 <div class="col-md-12">
                     <div class="row">
@@ -47,11 +47,15 @@
                 </div>
             </div>
 
+            @if($msg = session('success'))
+            <div class=" mt-4 alert alert-success">{{ $msg }}</div>
+            @endif
             <div class="my-4 table-responsive">
                 <h3>EXPENSES RECORDS</h3>
                 <table class="table table-hover">
                     <thead>
                     <tr>
+                        <th>Action</th>
                         <th>Date</th>
                         <th>Item</th>
                         <th>Description</th>
@@ -61,6 +65,14 @@
                     <tbody>
                     @forelse($user->expenses as $expense)
                     <tr>
+                        <td>
+                            <a href="{{ route('expenses.edit', $expense->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="Edit">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="deleteItem(`{{ $expense->hashed_id }}`)" class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
                         <td>{{ $expense->date->format('Y-m-d') }}</td>
                         <td>{{ $expense->item }}</td>
                         <td>{{ $expense->description ?? '--' }}</td>
@@ -68,12 +80,36 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="4">You are yet to add a record.</td>
+                        <td colspan="5">You are yet to add a record.</td>
                     </tr>
                     @endforelse
                     </tbody>
                 </table>
+                <form id="deleteItem" class="d-none" method="post">
+                    @method('delete')
+                    @csrf
+                </form>
             </div>
     </div>
-
 @endsection
+@push('script')
+<script>
+    function deleteItem(id) {
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                let deleteForm = $(`form#deleteItem`);
+                $(deleteForm).attr('action', `{{ url('/expenses/') }}/${id}`);
+                $(deleteForm).submit();
+            }
+        })
+    }
+</script>
+@endpush

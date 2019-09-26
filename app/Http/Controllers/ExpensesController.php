@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Str;
 use App\Expense;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -51,7 +52,8 @@ class ExpensesController extends Controller
         $data['date'] = Carbon::parse($data['date'])->toDateTimeString();
         $data['user_id'] = auth()->user()->id;
 
-        Expense::query()->create($data);
+        $expense = Expense::query()->create($data);
+        $expense->update(['hashed_id' => Str::strFromPrimaryKey($expense->id)]);
 
         return back()->with('success', 'Expense item added successfully. You may add another one');
     }
@@ -75,7 +77,7 @@ class ExpensesController extends Controller
      */
     public function edit(Expense $expense)
     {
-        //
+        return  view('edit', compact('expense'));
     }
 
     /**
@@ -87,18 +89,31 @@ class ExpensesController extends Controller
      */
     public function update(Request $request, Expense $expense)
     {
-        //
+        $data = $request->validate([
+            'item' => ['required', 'string', 'min:3', 'max:255'],
+            'description' => ['nullable', 'string', 'min:4'],
+            'date' => ['required', 'date'],
+            'amount' => ['required', 'integer', 'min:1']
+        ]);
+
+        $data['date'] = Carbon::parse($data['date'])->toDateTimeString();
+
+        $expense->update($data);
+
+        return back()->with('success', 'Item has been updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Expense $expense)
     {
-        //
+        $expense->delete();
+        return  redirect()->route('expenses.index')->with('success', "Item has been deleted");
     }
 
     /**
@@ -133,6 +148,6 @@ class ExpensesController extends Controller
             Carbon::parse($request->from)->toDateTimeString(), Carbon::parse($request->to)->toDateTimeString()
         ])->currentUser()->sum('amount');
 
-        return response()->json(['total' => $total]);
+        return response()->json(['total' => number_format($total)]);
     }
 }

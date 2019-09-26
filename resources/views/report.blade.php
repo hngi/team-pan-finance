@@ -16,6 +16,9 @@
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu3">CUSTOM RANGE</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu4">ALL TIME</a>
+            </li>
         </ul>
 
         <!-- Tab panes -->
@@ -25,7 +28,7 @@
                     <div class="card mt-5">
                         <div class="card-body">
                             <h4>TOTAL AMOUNT SPENT THIS WEEK: <br><br> NGN
-                                {{ $week }}
+                                {{ number_format($week) }}
                             </h4>
                         </div>
                     </div>
@@ -36,7 +39,7 @@
                     <div class="card mt-5">
                         <div class="card-body">
                             <h4>TOTAL AMOUNT SPENT THIS MONTH: <br><br> NGN
-                               {{ $month }}
+                               {{ number_format($month) }}
                             </h4>
                         </div>
                     </div>
@@ -47,12 +50,23 @@
                     <div class="card mt-5">
                         <div class="card-body">
                             <h4>TOTAL AMOUNT SPENT THIS YEAR: <br><br> NGN
-                                {{ $year }}
+                                {{ number_format($year) }}
                             </h4>
                         </div>
                     </div>
                 </div>
             </div>
+   {{--         <div class="tab-pane container fade" id="menu4">
+                <div class="col-md-6 offset-md-3 mt-5">
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <h4>TOTAL AMOUNT TRACKED (ALL TIME): <br><br> NGN
+                                {{ number_format($user->) }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>--}}
             <div class="tab-pane container fade" id="menu3">
                 <div class="col-md-6 offset-md-3 mt-5">
                     <div class="card mt-5">
