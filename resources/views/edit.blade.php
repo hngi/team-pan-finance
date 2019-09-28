@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="input-group mb-3">
-                        <input type="text" id="amount" name="amount" value="{{ old('amount', $expense->amount) }}" class="form-control" placeholder="Amount Spent">
+                        <input type="number" id="amount" name="amount" value="{{ old('amount', $expense->amount) }}" class="form-control" placeholder="Amount Spent">
                         <div class="input-group-append">
                             <span class="input-group-text">NGN</span>
                         </div>
