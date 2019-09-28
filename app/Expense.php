@@ -14,6 +14,10 @@ class Expense extends Model
       'date'
     ];
 
+    protected $hidden = [
+        'id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

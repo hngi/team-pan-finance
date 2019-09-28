@@ -122,17 +122,17 @@ class ExpensesController extends Controller
     {
         $week = Expense::query()->whereBetween('date', [
             now()->startOfWeek()->toDateTimeString(), now()->endOfWeek()->toDateTimeString()
-        ])->currentUser()->sum('amount');
+        ])->currentUser()->get();
 
         $month = Expense::query()->whereBetween('date', [
             now()->startOfMonth()->toDateTimeString(), now()->endOfMonth()->toDateTimeString()
-        ])->currentUser()->sum('amount');
+        ])->currentUser()->get();
 
         $year = Expense::query()->whereBetween('date', [
             now()->startOfYear()->toDateTimeString(), now()->endOfYear()->toDateTimeString()
-        ])->currentUser()->sum('amount');
+        ])->currentUser()->get();
 
-        $all_time = Expense::currentUser()->sum('amount');
+        $all_time = Expense::currentUser()->get();
 
         return view('report', compact('week', 'month', 'year', 'all_time'));
     }
@@ -144,10 +144,19 @@ class ExpensesController extends Controller
             'to' => ['required', 'date'],
         ]);
 
-        $total = Expense::query()->whereBetween('date', [
+        $records = Expense::query()->whereBetween('date', [
             Carbon::parse($request->from)->toDateTimeString(), Carbon::parse($request->to)->toDateTimeString()
-        ])->currentUser()->sum('amount');
+        ])->currentUser()->get();
 
-        return response()->json(['total' => number_format($total)]);
+        $total = number_format($records->sum('amount'));
+
+        // Format The dates
+        $records = $records->toArray();
+        $records = array_map(function ($item) {
+             $item['date'] = date('Y-m-d', strtotime($item['date']));
+             return $item;
+        }, $records);
+
+        return response()->json(compact('total', 'records'));
     }
 }
