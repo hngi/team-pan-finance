@@ -29,6 +29,7 @@
                         <h4>TOTAL AMOUNT SPENT THIS WEEK: <br><br> NGN
                             {{ number_format($week->sum('amount')) }}
                         </h4>
+                        @include('includes._percentage_diff', ['diff' => $diff_week, 'duration' => 'week'])
                         @include('includes._records_table', ['records' => $week, 'id' => 'week'])
                     </div>
                 </div>
@@ -39,6 +40,7 @@
                         <h4>TOTAL AMOUNT SPENT THIS MONTH: <br><br> NGN
                            {{ number_format($month->sum('amount')) }}
                         </h4>
+                        @include('includes._percentage_diff', ['diff' => $diff_month, 'duration' => 'month'])
                         @include('includes._records_table', ['records' => $month, 'id' => 'month'])
                     </div>
                 </div>
@@ -49,6 +51,7 @@
                         <h4>TOTAL AMOUNT SPENT THIS YEAR: <br><br> NGN
                             {{ number_format($year->sum('amount')) }}
                         </h4>
+                        @include('includes._percentage_diff', ['diff' => $diff_year, 'duration' => 'year'])
                         @include('includes._records_table', ['records' => $year, 'id' => 'year'])
                     </div>
                 </div>

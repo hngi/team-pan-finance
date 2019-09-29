@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\Str;
 use App\Expense;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class ExpensesController extends Controller
@@ -28,7 +29,7 @@ class ExpensesController extends Controller
         if (session()->has('first_timer')) {
             $first_timer = true;
         }
-        $expenses = $user->expenses()->paginate();
+        $expenses = $user->expenses()->latest('date')->paginate();
         return  view('home', compact('user', 'expenses', 'first_timer'));
     }
 
@@ -123,18 +124,22 @@ class ExpensesController extends Controller
         $week = Expense::query()->whereBetween('date', [
             now()->startOfWeek()->toDateTimeString(), now()->endOfWeek()->toDateTimeString()
         ])->currentUser()->get();
+        $diff_week = $this->percentageCDiff('week', $week);
 
         $month = Expense::query()->whereBetween('date', [
             now()->startOfMonth()->toDateTimeString(), now()->endOfMonth()->toDateTimeString()
         ])->currentUser()->get();
+        $diff_month = $this->percentageCDiff('month', $month);
 
         $year = Expense::query()->whereBetween('date', [
             now()->startOfYear()->toDateTimeString(), now()->endOfYear()->toDateTimeString()
         ])->currentUser()->get();
+        $diff_year = $this->percentageCDiff('year', $year);
+
 
         $all_time = Expense::currentUser()->get();
 
-        return view('report', compact('week', 'month', 'year', 'all_time'));
+        return view('report', compact('week', 'month', 'year', 'all_time', 'diff_month', 'diff_week', 'diff_year'));
     }
 
     public function customRangeReport(Request $request)
@@ -158,5 +163,47 @@ class ExpensesController extends Controller
         }, $records);
 
         return response()->json(compact('total', 'records'));
+    }
+
+    /**
+     * Get percentage change between current record and precious record
+     * @param string $duration
+     * @param Collection $duration_expenses
+     * @return float|int|null
+     */
+    private function percentageCDiff(string $duration, Collection $duration_expenses)
+    {
+        switch ($duration) {
+            case "week":
+                $prev_duration_expense = Expense::query()
+                    ->whereBetween('date', [
+                        now()->subWeek()->startOfWeek()->toDateTimeString(),
+                        now()->subWeek()->endOfWeek()->toDateTimeString(),
+                    ])->currentUser()->get();
+                break;
+            case "month":
+                $prev_duration_expense = Expense::query()
+                    ->whereBetween('date', [
+                      now()->subMonth()->startOfMonth()->toDateTimeString(),
+                        now()->subMonth()->endOfMonth()->toDateTimeString(),
+                    ])->currentUser()->get();
+                break;
+            case "year":
+                $prev_duration_expense = Expense::query()
+                    ->whereBetween('date', [
+                        now()->subYear()->startOfYear()->toDateTimeString(),
+                        now()->subYear()->endOfYear()->toDateTimeString(),
+                    ])->currentUser()->get();
+                break;
+        }
+
+        if (empty($prev_duration_expense->toArray()) || empty($duration_expenses->toArray())) {
+            return null;
+        }
+
+
+        $diff = $duration_expenses->sum('amount') - $prev_duration_expense->sum('amount');
+        $percent_diff = $diff / $prev_duration_expense->sum('amount');
+        return $percent_diff * 100;
     }
 }
