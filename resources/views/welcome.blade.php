@@ -34,7 +34,7 @@
             
             <ul class="navbar-nav">
 
-                <li class="nav-link ml-5 mr-5"><a class="ml-5" href="" style="text-decoration: none; font-size: 120%; color: #5829B8;">FAQs</a></li>
+                <li class="nav-link ml-5 mr-5"><a class="ml-5" href="{{ url('faqs') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">FAQs</a></li>
             </ul>        
         
     </nav>
