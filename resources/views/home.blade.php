@@ -42,6 +42,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
+                            <a class="btn btn-primary p-3 mt-1" button onclick="myFunction()" href="#">PRINT RECORD</a>
+                            <a class="btn btn-primary p-3 mt-1" href="{{ route('expense.report.download') }}">DOWNLOAD RECORD</a>
                         </div>
 
                     </div>
@@ -96,6 +98,11 @@
 @endsection
 @push('script')
 <script>
+
+    function myFunction() {
+    window.print();
+    }
+
     function deleteItem(id) {
         swal.fire({
             title: 'Are you sure?',

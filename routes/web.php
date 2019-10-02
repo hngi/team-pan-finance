@@ -17,3 +17,4 @@ Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport
 Route::resource('expenses', 'ExpensesController')->except(['show']);
 
 Route::view('faqs', 'faqs');
+Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
