@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col-md-4 offset-md-4 text-center">
-            <a href="" style="color: #5829B8; font-weight: 800; font-size: 250%;" class="d-block nl-4"><img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;" class="mx-auto img-fluid"><span class="mt-2">fintrack</span></a>
+            <a href="{{ url('/') }}" style="color: #5829B8; font-weight: 800; font-size: 250%;" class="d-block nl-4"><img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;" class="mx-auto img-fluid"><span class="mt-2">fintrack</span></a>
         </div>
 
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
