@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     protected $fillable = [
-      'user_id', 'item', 'description', 'amount', 'date'
+      'hashed_id', 'user_id', 'item', 'description', 'amount', 'date'
     ];
 
     protected $dates = [
       'date'
+    ];
+
+    protected $hidden = [
+        'id'
     ];
 
     public function user()
@@ -22,5 +26,10 @@ class Expense extends Model
     public function scopeCurrentUser($query)
     {
         return $query->where('user_id', auth()->user()->id);
+    }
+
+    public function resolveRouteBinding($value)
+    {
+       return $this->where('hashed_id', $value)->where('user_id', auth()->user()->id)->first() ?? abort(404);
     }
 }

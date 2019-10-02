@@ -10,6 +10,8 @@ Route::get('/',function () {
     }
     return view('welcome');
 });
+
+Route::redirect('home', 'expenses');
 Route::get('expenses/report', 'ExpensesController@report')->name('expenses.report');
 Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport')->name('expenses.report.custom');
-Route::resource('expenses', 'ExpensesController');
+Route::resource('expenses', 'ExpensesController')->except(['show']);
