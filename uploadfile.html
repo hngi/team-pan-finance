@@ -1,0 +1,50 @@
+<html>
+  <body>
+    
+    <form action="" method="post" enctype="multipart/form-data" onsubmit="AJAXSubmit(this); return false;">
+      <fieldset>
+          <label >Select photo of expense:
+          <input type="file" name="file"></label>
+          <input type="submit" value="Submit" id="submit"/>
+          <img id="uploaded">
+        <div id="results"></div>
+      </fieldset>
+    </form>
+    <style>
+#submit{
+    background-color: blue;
+    margin-top:9px;
+}
+    </style>
+   
+    <?php
+      $cloud_name = "asnas";
+      $api_key = "225422951542744";
+      $api_secret = "xT8vKGkiuchegOzxUKNNVgni1W8";
+      $timestamp = time();
+      $signature = sha1("timestamp=".$timestamp.$api_secret);
+    ?>
+
+    <script>
+        window.ajaxSuccess = function () {
+    	    response = JSON.parse(this.responseText);
+          console.log("ajaxSuccess", typeof this.responseText);
+          document.getElementById('uploaded').setAttribute("src", response["secure_url"]);
+          document.getElementById('results').innerText = this.responseText;
+        }
+        
+        window.AJAXSubmit = function (formElement) {
+          console.log("starting AJAXSubmit");
+          var xhr = new XMLHttpRequest();
+          xhr.onload = ajaxSuccess;
+          var formData = new FormData(formElement);
+          formData.append("timestamp", '<? php echo $timestamp ?>');
+          formData.append("signature", "<?php echo $signature ?>");
+          formData.append("api_key", '<?php echo $api_key ?>');
+          console.log(formData);
+          xhr.open("post", "https://api.cloudinary.com/v1_1/<?php echo $cloud_name ?>/image/upload");
+          xhr.send(formData);
+        }
+    </script>
+  </body>
+</html>
