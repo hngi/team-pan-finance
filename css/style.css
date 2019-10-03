@@ -24,3 +24,18 @@ body {
     background-color: #5829B8;
     color: #fff;
 }
+
+
+/* tab color */
+
+#home-tab {
+    color: red;
+}
+
+#myTab {
+    color: red;
+}
+
+.nav-pills {
+    background-color: yellow;
+}
