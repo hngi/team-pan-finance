@@ -67,10 +67,10 @@
                                 <a class="nav-link {{ Route::is('expenses.create')? "active": '' }}" id="create-tab"  href="{{ route('expenses.create') }}" role="tab" aria-controls="profile" aria-selected="false">NEW EXPENSE</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Route::is('expenses.report')? "active": '' }}" id="contact-tab"  href="{{ route('expenses.report') }}" role="tab" aria-controls="contact" aria-selected="false">EXPENSE REPORT</a>
+                                <a class="nav-link {{ preg_match("/income/", request()->route()->getName())  ? "active": '' }}" id="contact-tab"  href="{{ route('income.index') }}" role="tab" aria-controls="contact" aria-selected="false">INCOME RECORDS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ preg_match("/income/", request()->route()->getName())  ? "active": '' }}" id="contact-tab"  href="{{ route('income.index') }}" role="tab" aria-controls="contact" aria-selected="false">EXPENSE REPORT</a>
+                                <a class="nav-link {{ Route::is('expenses.report')? "active": '' }}" id="contact-tab"  href="{{ route('expenses.report') }}" role="tab" aria-controls="contact" aria-selected="false">REPORTS</a>
                             </li>
                         </ul>
                     </div>
