@@ -44,6 +44,8 @@
 
             </form> <br>
             <div class="col-md-12" style="text-align: center;">
+            <p class="mx-auto mt-2">Forgot Your Account? <a href="" style="color: #5829B8">Reset It</a>
+                </p>
                 <p class="mx-auto mt-2">Don't have an account? <a href="{{ route('register') }}" style="color: #5829B8">Register</a>
                 </p>
             </div>
