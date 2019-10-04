@@ -17,3 +17,6 @@ Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport
 Route::resource('expenses', 'ExpensesController')->except(['show']);
 
 Route::view('faqs', 'faqs');
+
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
