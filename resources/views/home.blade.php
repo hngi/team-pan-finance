@@ -38,10 +38,11 @@
                     <br><br> NGN
                     {{ number_format($user->expenses->sum('amount')) }}
                 </h4>
-                <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total Income recordd by you
+                 <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total Income recordd by you
                     <br><br> NGN
                     {{ number_format($user->incomes->sum('amount')) }}
                 </h4>
+
                 <div class="col-md-12">
                     <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
                     <a class="btn btn-primary p-3 mt-1" href="{{ route('income.create') }}">ADD INCOME RECORD</a>

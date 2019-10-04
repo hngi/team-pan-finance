@@ -19,6 +19,6 @@ Route::resource('income', 'IncomeController');
 
 Route::view('faqs', 'faqs');
 Route::view('team', 'team');
+Route::view('testimonials', 'testimonials');
 Route::view('about', 'about');
-
 Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
