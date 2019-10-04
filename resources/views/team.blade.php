@@ -49,7 +49,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-5" href="#" style="color: #5829B8; font-weight: 800; font-size: 250%;">
+        <a class="navbar-brand ml-5" href="{{ url('/') }}" style="color: #5829B8; font-weight: 800; font-size: 250%;">
             <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;"><span class="mt-2">fintrack</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
