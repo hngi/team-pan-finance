@@ -4,7 +4,8 @@
         <div class=" mt-4 alert alert-success">{{ $msg }}</div>
     @endif
     <div class="my-4 table-responsive">
-        <h3>EXPENSES RECORDS</h3>
+        <h3>INCOME RECORDS</h3>
+        <a href="{{ route('income.create') }}" class="btn btn-primary my-4 float-right">Add New Record</a>
         <table class="table table-hover">
             <thead>
             <tr>
