@@ -37,7 +37,8 @@
  <li class="nav-link "><a class="ml-5" href="{{ url('about') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">About</a></li>
                 <li class="nav-link mr-5"><a class="ml-5" href="{{ url('team') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Team</a></li>
                             </ul>        
-        
+        <li class="nav-link mr-5"><a class="ml-5" href="{{ url('testimonial') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Testimonials</a></li>
+                            </ul> 
     </nav>
 
 
