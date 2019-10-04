@@ -34,7 +34,7 @@
     <div id="app">
         <main class="py-4">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand ml-5" href="#" style="color: #5829B8; font-weight: 800; font-size: 250%;">
+                <a class="navbar-brand ml-5" href="{{ url('/') }}" style="color: #5829B8; font-weight: 800; font-size: 250%;">
                     <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;"><span class="mt-2">fintrack</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,10 @@
                                 <a class="nav-link {{ Route::is('expenses.create')? "active": '' }}" id="create-tab"  href="{{ route('expenses.create') }}" role="tab" aria-controls="profile" aria-selected="false">NEW EXPENSE</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Route::is('expenses.report')? "active": '' }}" id="contact-tab"  href="{{ route('expenses.report') }}" role="tab" aria-controls="contact" aria-selected="false">EXPENSE REPORT</a>
+                                <a class="nav-link {{ preg_match("/income/", request()->route()->getName())  ? "active": '' }}" id="contact-tab"  href="{{ route('income.index') }}" role="tab" aria-controls="contact" aria-selected="false">INCOME RECORDS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('expenses.report')? "active": '' }}" id="contact-tab"  href="{{ route('expenses.report') }}" role="tab" aria-controls="contact" aria-selected="false">REPORTS</a>
                             </li>
                         </ul>
                     </div>
