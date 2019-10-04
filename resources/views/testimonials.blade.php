@@ -10,9 +10,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css' }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
-     <link rel="stylesheet" href="{{ asset('css/testimonial.css') }}">    
+     <link rel="stylesheet" href="{{ asset('css/testimonial.css') }}">
     <style>
         .btn-outline-primary:hover {
             border: 2px solid #5829B8;
