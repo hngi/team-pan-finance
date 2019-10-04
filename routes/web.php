@@ -18,5 +18,5 @@ Route::resource('expenses', 'ExpensesController')->except(['show']);
 
 Route::view('faqs', 'faqs');
 
-Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
-Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('auth.provider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('auth.provider');
