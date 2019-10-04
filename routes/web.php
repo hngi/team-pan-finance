@@ -28,3 +28,6 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
