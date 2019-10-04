@@ -15,8 +15,13 @@ Route::redirect('home', 'expenses');
 Route::get('expenses/report', 'ExpensesController@report')->name('expenses.report');
 Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport')->name('expenses.report.custom');
 Route::resource('expenses', 'ExpensesController')->except(['show']);
+Route::resource('income', 'IncomeController');
 
 Route::view('faqs', 'faqs');
+Route::view('team', 'team');
+Route::view('testimonials', 'testimonials');
+Route::view('about', 'about');
+Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

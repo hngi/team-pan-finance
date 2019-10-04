@@ -34,21 +34,19 @@
                 <h2>Home</h2>
                 <p style="font-size: 120%; font-weight: 300;">
                     {{ $first_timer ? "Welcome": "Welcome back"}}, {{ $user->full_name }}</p>
-                <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total expenses tracked by you:
+                <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total amount tracked by you:
                     <br><br> NGN
                     {{ number_format($user->expenses->sum('amount')) }}
                 </h4>
-                 <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total Income recordd by you
-                    <br><br> NGN
-                    {{ number_format($user->incomes->sum('amount')) }}
-                </h4>
-
                 <div class="col-md-12">
-                    <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
-                    <a class="btn btn-primary p-3 mt-1" href="{{ route('income.create') }}">ADD INCOME RECORD</a>
-                    <a class="btn btn-primary p-3 mt-1" href="{{ route('income.index') }}">VIEW INCOME RECORDS</a>
-                    <a class="btn btn-primary p-3 mt-1" button onclick="myFunction()" href="#">PRINT RECORD</a>
-                    <a class="btn btn-primary p-3 mt-1" href="{{ route('expense.report.download') }}">DOWNLOAD RECORD</a>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
+                            <a class="btn btn-primary p-3 mt-1" button onclick="myFunction()" href="#">PRINT RECORD</a>
+                            <a class="btn btn-primary p-3 mt-1" href="{{ route('expense.report.download') }}">DOWNLOAD RECORD</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
