@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\Str;
 use App\Income;
 use App\IncomeCategory;
+use App\Rules\NotAFutureDate;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -45,7 +46,7 @@ class IncomeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'date' => ['required', 'date'],
+            'date' => ['required', 'date', new NotAFutureDate],
             'category' => ['required', 'exists:income_categories,id'],
             'amount' => ['integer', 'min:1'],
             'description' => ['required', 'string', 'min:4',  'max:1024'],
@@ -96,7 +97,7 @@ class IncomeController extends Controller
     public function update(Request $request, Income $income)
     {
         $data = $request->validate([
-            'date' => ['required', 'date'],
+            'date' => ['required', 'date', new NotAFutureDate],
             'category' => ['required', 'exists:income_categories,id'],
             'amount' => ['integer', 'min:1'],
             'description' => ['required', 'string', 'min:4',  'max:1024'],

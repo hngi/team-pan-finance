@@ -14,9 +14,9 @@
                     <div class="form-group">
                         <input type="date" name="date" value="{{ old('date', $income->date->format('Y-m-d')) }}" class="form-control" id="datepicker" placeholder="Date">
                         @error('date')
-                        <span class="invalid-feedback" role="alert">
+                        <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
-                        </span>
+                        </small>
                         @enderror
                     </div>
                 </div>
@@ -34,9 +34,9 @@
                             @endforeach
                         </select>
                         @error('category')
-                        <span class="text-danger" role="alert">
+                        <small class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </small>
                         @enderror
                     </div>
                 </div>
@@ -57,9 +57,9 @@
                     <div class="form-group">
                         <textarea class="form-control" name="description" rows="5" id="comment" placeholder="Description">{{ old('description', $income->description) }}</textarea>
                         @error('description')
-                        <span class="text-danger" role="alert">
+                        <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
-                        </span>
+                        </small>
                         @enderror
                     </div>
                 </div>

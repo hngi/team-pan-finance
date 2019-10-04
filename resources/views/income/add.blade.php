@@ -14,9 +14,9 @@
                     <div class="form-group">
                         <input type="date" name="date" value="{{ old('date') }}" class="form-control" id="datepicker" placeholder="Date">
                         @error('date')
-                        <span class="invalid-feedback" role="alert">
+                        <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
-                        </span>
+                        </small>
                         @enderror
                     </div>
                 </div>
@@ -28,13 +28,15 @@
                         <select name="category" class="form-control" required>
                             <option value="">Category</option>
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option
+                                    @if($category->id == old('category')) selected @endif
+                                    value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                         @error('category')
-                        <span class="text-danger" role="alert">
+                        <small class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </small>
                         @enderror
                     </div>
                 </div>
@@ -45,9 +47,9 @@
                             <span class="input-group-text">NGN</span>
                         </div>
                         @error('amount')
-                        <span class="text-danger" role="alert">
+                        <small class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </small>
                         @enderror
                     </div>
                 </div>
@@ -55,9 +57,9 @@
                     <div class="form-group">
                         <textarea class="form-control" name="description" rows="5" id="comment" placeholder="Description">{{ old('description') }}</textarea>
                         @error('description')
-                        <span class="text-danger" role="alert">
+                        <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
-                        </span>
+                        </small>
                         @enderror
                     </div>
                 </div>

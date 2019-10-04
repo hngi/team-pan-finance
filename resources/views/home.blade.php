@@ -44,7 +44,7 @@
                 </h4>
                 <div class="col-md-12">
                     <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
-                    <a class="btn btn-primary p-3 mt-1" href="{{ route('income.create') }}">ADD INCOME</a>
+                    <a class="btn btn-primary p-3 mt-1" href="{{ route('income.create') }}">ADD INCOME RECORD</a>
                     <a class="btn btn-primary p-3 mt-1" href="{{ route('income.index') }}">VIEW INCOME RECORDS</a>
                     <a class="btn btn-primary p-3 mt-1" button onclick="myFunction()" href="#">PRINT RECORD</a>
                     <a class="btn btn-primary p-3 mt-1" href="{{ route('expense.report.download') }}">DOWNLOAD RECORD</a>
