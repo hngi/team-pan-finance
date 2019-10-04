@@ -26,20 +26,20 @@
         <a class="navbar-brand ml-5" href="#" style="color: #5829B8; font-weight: 800; font-size: 250%;">
             <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1569248451/finance-tracker/Finance_money_Dollar_management_cash_savings_salary-512_sgdosn.png" alt="Logo" style="width:40px;"><span class="mt-2">fintrack</span>
         </a>
-        
-        
-            <ul class="navbar-nav mr-auto">
 
-            </ul>
-            
-            <ul class="navbar-nav">
 
- <li class="nav-link "><a class="ml-5" href="{{ url('faqs') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">FAQS</a></li>
- <li class="nav-link "><a class="ml-5" href="{{ url('about') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">About</a></li>
-                <li class="nav-link mr-5"><a class="ml-5" href="{{ url('team') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Team</a></li>
-                            </ul>        
-        <li class="nav-link mr-5"><a class="ml-5" href="{{ url('testimonial') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Testimonials</a></li>
-                            </ul> 
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+
+        <ul class="navbar-nav">
+
+            <li class="nav-link "><a class="ml-5" href="{{ url('faqs') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">FAQS</a></li>
+            <li class="nav-link "><a class="ml-5" href="{{ url('about') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">About</a></li>
+            <li class="nav-link mr-5"><a class="ml-5" href="{{ url('team') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Team</a></li>
+        </ul>
+        <li class="nav-link mr-5"><a class="ml-5" href="{{ url('testimonials') }}" style="text-decoration: none; font-size: 120%; color: #5829B8;">Testimonials</a></li>
+        </ul>
     </nav>
 
 
