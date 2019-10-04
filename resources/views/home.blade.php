@@ -38,10 +38,15 @@
                     <br><br> NGN
                     {{ number_format($user->expenses->sum('amount')) }}
                 </h4>
+                <h4 class="pt-3 pb-3 mb-5 col-md-4" style="background-color: #fff">Total Income:
+                    <br><br> NGN
+                    {{ number_format($user->expenses->sum('amount')) }}
+                </h4>
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-6">
                             <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">RECORD AN EXPENSE</a>
+                            <a class="btn btn-primary p-3 mt-1" href="{{ route('expenses.create') }}">ADD INCOME</a>
                             <a class="btn btn-primary p-3 mt-1" button onclick="myFunction()" href="#">PRINT RECORD</a>
                             <a class="btn btn-primary p-3 mt-1" href="{{ route('expense.report.download') }}">DOWNLOAD RECORD</a>
                         </div>
