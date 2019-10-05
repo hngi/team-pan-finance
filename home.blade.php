@@ -15,6 +15,7 @@
             background-color: rgb(248, 249, 250);
             color: #5829B8 !important;
         }
+        
 
         .nav-tabs>li>a.active {
             background-color: #5829B8 !important;
