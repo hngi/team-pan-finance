@@ -22,3 +22,9 @@ Route::view('team', 'team');
 Route::view('testimonials', 'testimonials');
 Route::view('about', 'about');
 Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
+
+Route::prefix('admin')->group(function(){
+Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::get('/', 'AdminController@index')->name('admin.dashboard');
+});
