@@ -44,9 +44,7 @@
 
             </form> <br>
             <div class="col-md-12" style="text-align: center;">
-                <a class="mb-2" href="{{ route('password.request') }}" style="color: #5829B8">Forgot Password?</a>
-
-                <p class="mx-auto mt-2">Don't have an account? <a href="{{ route('register') }}" style="color: #5829B8">Register</a>
+                <p class="mx-auto mt-2">Don't have an account? <a href="{{ route('register') }}" style="color: #5829B8">Register</a> or <a href="{{ url('auth/google') }}" style="color: #5829B8">SignIn with Google</a>
                 </p>
             </div>
             <div class="col-md-10 offset-md-1">
