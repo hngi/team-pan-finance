@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Cloudinary;
 use App\Classes\Str;
 use App\Income;
 use App\IncomeCategory;
@@ -50,10 +51,16 @@ class IncomeController extends Controller
             'category' => ['required', 'exists:income_categories,id'],
             'amount' => ['integer', 'min:1'],
             'description' => ['required', 'string', 'min:4',  'max:1024'],
+            'picture' => ['nullable', 'image', 'max:2048']
         ]);
 
         $data['user_id'] = auth()->user()->id;
         $data['category_id'] = $data['category'];
+
+        if ($request->hasFile('picture')) {
+            $upload = Cloudinary::upload($request->picture);
+            $data['cloudinary_url'] = $upload['secure_url'];
+        }
 
         $income = Income::query()->create($data);
 
@@ -72,7 +79,7 @@ class IncomeController extends Controller
      */
     public function show(Income $income)
     {
-        //
+        return view('income.show', ['income' => $income]);
     }
 
     /**
@@ -119,5 +126,10 @@ class IncomeController extends Controller
     {
         $income->delete();
         return redirect()->route('income.index')->with('success', 'Action was successful');
+    }
+
+    public function getImage(Income $income)
+    {
+        return response()->json( $income->cloudinary_url);
     }
 }
