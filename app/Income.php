@@ -8,7 +8,7 @@ use Illuminate\Database\Query\Builder;
 class Income extends Model
 {
     protected $fillable = [
-        'hashed_id', 'date', 'category_id', 'amount', 'description', 'user_id'
+        'hashed_id', 'date', 'category_id', 'amount', 'description', 'user_id', 'cloudinary_url',
     ];
 
     protected $dates = [

@@ -10,11 +10,11 @@
     "require": {
         "php": "^7.2",
         "ext-gmp": "*",
+        "cloudinary/cloudinary_php": "^1.15",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "hashids/hashids": "^4.0",
         "laravel/framework": "^6.0",
-        "laravel/socialite": "^4.2",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
