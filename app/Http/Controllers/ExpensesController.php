@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\Cloudinary;
 use App\Classes\Str;
 use App\Expense;
 use Carbon\Carbon;
@@ -56,14 +55,8 @@ class ExpensesController extends Controller
             'item' => ['required', 'string', 'min:3', 'max:255'],
             'description' => ['nullable', 'string', 'min:4'],
             'date' => ['required', 'date'],
-            'amount' => ['required', 'integer', 'min:1'],
-            'picture' => ['nullable', 'image', 'max:2048']
+            'amount' => ['required', 'integer', 'min:1']
         ]);
-
-        if ($request->hasFile('picture')) {
-            $upload = Cloudinary::upload($request->picture);
-            $data['picture_url'] = $upload['secure_url'];
-        }
 
         $data['date'] = Carbon::parse($data['date'])->toDateTimeString();
         $data['user_id'] = auth()->user()->id;
@@ -72,11 +65,6 @@ class ExpensesController extends Controller
         $expense->update(['hashed_id' => Str::strFromPrimaryKey($expense->id)]);
 
         return back()->with('success', 'Expense item added successfully. You may add another one');
-    }
-
-    public function show(Expense $expense)
-    {
-        return view('show', ['expense' => $expense]);
     }
 
 
@@ -104,15 +92,8 @@ class ExpensesController extends Controller
             'item' => ['required', 'string', 'min:3', 'max:255'],
             'description' => ['nullable', 'string', 'min:4'],
             'date' => ['required', 'date'],
-            'amount' => ['required', 'integer', 'min:1'],
-            'picture' => ['nullable', 'image', 'max:2048']
+            'amount' => ['required', 'integer', 'min:1']
         ]);
-
-
-        if ($request->hasFile('picture')) {
-            $upload = Cloudinary::upload($request->picture);
-            $data['picture_url'] = $upload['secure_url'];
-        }
 
         $data['date'] = Carbon::parse($data['date'])->toDateTimeString();
 

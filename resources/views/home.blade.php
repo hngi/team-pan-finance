@@ -71,9 +71,6 @@
                     @forelse($expenses as $expense)
                     <tr>
                         <td>
-                            <a href="{{ route('expenses.show', $expense->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="far fa-eye"></i>
-                            </a>
                             <a href="{{ route('expenses.edit', $expense->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="Edit">
                                 <i class="far fa-edit"></i>
                             </a>
