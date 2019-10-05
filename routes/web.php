@@ -23,6 +23,7 @@ Route::view('testimonials', 'testimonials');
 Route::view('about', 'about');
 Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
 
+<<<<<<< HEAD
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Auth::routes();
@@ -31,3 +32,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+=======
+Route::prefix('admin')->group(function(){
+Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::get('/', 'AdminController@index')->name('admin.dashboard');
+});
+>>>>>>> ddbcaf2e0c6ac78bb5e0ca23f02627f21cb18f26
