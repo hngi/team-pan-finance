@@ -20,6 +20,9 @@
             @forelse($incomes as $income)
                 <tr>
                     <td>
+                        <a href="{{ route('income.show', $income->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="View Images">
+                            <i class="far fa-eye"></i>
+                        </a>
                         <a href="{{ route('income.edit', $income->hashed_id) }}" class="text-info" data-toggle="tooltip" data-placement="top" title="Edit">
                             <i class="far fa-edit"></i>
                         </a>

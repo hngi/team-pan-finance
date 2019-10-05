@@ -7,12 +7,22 @@
                 {{ $msg }}
             </div>
         @endif
-        <form action="{{ route('income.store') }}" method="post">
+        <form action="{{ route('income.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <input type="date" name="date" value="{{ old('date', $income->date->format('Y-m-d')) }}" class="form-control" id="datepicker" placeholder="Date">
+                        <input type="date" name="picture"  class="form-control" id="picture" placeholder="Picture">
+                        @error('picture')
+                        <small class="text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="file" name="date" value="{{ old('date', $income->date->format('Y-m-d')) }}" class="form-control" id="datepicker" placeholder="Date">
                         @error('date')
                         <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>

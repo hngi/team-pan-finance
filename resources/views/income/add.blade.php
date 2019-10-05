@@ -2,18 +2,29 @@
 @section('content')
     <div class=""  role="tabpanel" aria-labelledby="profile-tab">
         <h2 class="ml-3">Add Income Details</h2>
+        <h5>You may add picture that may describe income source. (not required).</h5>
         @if($msg = session('success'))
             <div class="alert alert-success">
                 {{ $msg }}
             </div>
         @endif
-        <form action="{{ route('income.store') }}" method="post">
+        <form action="{{ route('income.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <input type="date" name="date" value="{{ old('date') }}" class="form-control" id="datepicker" placeholder="Date">
                         @error('date')
+                        <small class="text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="file" name="picture" value="{{ old('picture') }}" class="form-control" id="picture" placeholder="Picture (Optional)">
+                        @error('picture')
                         <small class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
                         </small>
