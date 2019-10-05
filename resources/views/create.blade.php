@@ -7,7 +7,7 @@
                 {{ $msg }}
             </div>
         @endif
-        <form action="{{ route('expenses.store') }}" method="post">
+        <form action="{{ route('expenses.store') }}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -35,16 +35,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <input type="date" name="date" value="{{ old('date') }}" class="form-control" id="datepicker" placeholder="Date">
                             @error('date')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" name="picture" class="form-control-file" id="datepicker" placeholder="Picture">
+                            @error('picture')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <textarea class="form-control" name="description" rows="5" id="comment" placeholder="Description">{{ old('description') }}</textarea>

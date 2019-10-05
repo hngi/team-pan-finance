@@ -14,7 +14,7 @@ Route::get('/',function () {
 Route::redirect('home', 'expenses');
 Route::get('expenses/report', 'ExpensesController@report')->name('expenses.report');
 Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport')->name('expenses.report.custom');
-Route::resource('expenses', 'ExpensesController')->except(['show']);
+Route::resource('expenses', 'ExpensesController');
 Route::resource('income', 'IncomeController');
 
 Route::view('faqs', 'faqs');
@@ -23,19 +23,13 @@ Route::view('testimonials', 'testimonials');
 Route::view('about', 'about');
 Route::middleware('auth')->get('download-report', 'MiscellenousController@downloadReport')->name('expense.report.download');
 
-<<<<<<< HEAD
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::prefix('admin')->group(function(){
 Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
->>>>>>> ddbcaf2e0c6ac78bb5e0ca23f02627f21cb18f26
