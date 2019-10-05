@@ -133,6 +133,12 @@
 
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/gmikecloud/image/upload/e_improve,r_30/a_0/v1566640573/20190321_205838_wbg2cb.jpg" alt="" width="200" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-n2">GMike</h5><span class="small text-uppercase text-muted">Backend Developer</span>
+
+                </div>
+            </div>
             <!-- End -->
         </div>
     </div>
