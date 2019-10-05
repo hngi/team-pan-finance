@@ -14,7 +14,7 @@ Route::get('/',function () {
 Route::redirect('home', 'expenses');
 Route::get('expenses/report', 'ExpensesController@report')->name('expenses.report');
 Route::get('expenses/report/custom-range', 'ExpensesController@customRangeReport')->name('expenses.report.custom');
-Route::resource('expenses', 'ExpensesController')->except(['show']);
+Route::resource('expenses', 'ExpensesController');
 Route::resource('income', 'IncomeController');
 
 Route::view('faqs', 'faqs');
