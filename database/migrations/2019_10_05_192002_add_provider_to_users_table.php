@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class AddProviderToUsersTable extends Migration
 {
-    /**
+   /**
      * Run the migrations.
      *
      * @return void
@@ -14,7 +14,8 @@ class AddProviderToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('provider');
+            $table->string('provider_id');
         });
     }
 
@@ -26,7 +27,8 @@ class AddProviderToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('provider');
+            $table->dropColumn('provider_id');
         });
     }
 }
