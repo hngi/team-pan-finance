@@ -44,6 +44,8 @@
 
             </form> <br>
             <div class="col-md-12" style="text-align: center;">
+                <a class="mb-2" href="{{ route('password.request') }}" style="color: #5829B8">Forgot Password?</a>
+
                 <p class="mx-auto mt-2">Don't have an account? <a href="{{ route('register') }}" style="color: #5829B8">Register</a>
                 </p>
             </div>
